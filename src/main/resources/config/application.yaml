@@ -1,0 +1,32 @@
+# 기본 환경(로컬)에서 적용되는 DB 설정
+spring:
+  datasource:
+    master:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3307/mybatis
+      username: root
+      password: 123456
+    slave:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3307/mybatis
+      username: root
+      password: 123456
+
+  output:
+    ansi:
+        enabled: always
+
+
+
+# MyBatis
+mybatis:
+  type-aliases-package: com.sample.testapi.model # 파라미터, 응답값에 패키지명 등을 안적어도 되게
+  configuration:
+    map-underscore-to-camel-case: true # DB의 underscore를 camel case로 자동 변환
+  mapper-locations: classpath:mapper/**/*.xml # resources/mapper 하위에 있는 xml을 매핑파일로 인식
+logging:
+  level:
+    board:
+      demo:
+        repository:
+          mybatis: trace # board.demo.repository.mybatis 로그 추출

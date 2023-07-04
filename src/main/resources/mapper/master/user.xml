@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sample.testapi.mapper.master.MasterUserMapper">
+
+    <!-- 회원 등록 -->
+    <insert id="createUser" parameterType="UserDto"> INSERT INTO user(name, email, gender) VALUES
+        (#{user.name}, #{user.email}, #{user.gender}); </insert>
+
+
+    <!-- 회원 수정 -->
+    <update id="updateUser" parameterType="UserDto"> update user set name = #{user.name}, email =
+        #{user.email}, gender = #{user.gender} where id = #{id} </update>
+
+    <!-- 회원 삭제 -->
+    <delete id="deleteUser"> DELETE FROM user WHERE id = #{id} </delete>
+
+
+    <!--    -->
+
+</mapper>
